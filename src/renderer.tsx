@@ -1,6 +1,4 @@
-// import './styles.css';
-
-// console.log('👋 This message is being logged by "renderer.js", included via webpack');
+import './styles.css';
 
 import React, { useState, useEffect, FC } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -145,6 +143,7 @@ document.addEventListener('DOMContentLoaded', attachEventListeners);
 const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(<App />);
+
 
 const navbarContainer = document.getElementById('navbarRoot');
 const navbarRoot = createRoot(navbarContainer!)

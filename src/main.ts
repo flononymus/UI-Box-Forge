@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from 'electron';
+import { app, ipcMain, BrowserWindow, nativeTheme } from 'electron'
+import path from 'node:path'
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
@@ -18,7 +19,33 @@ const createWindow = (): void => {
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   mainWindow.webContents.openDevTools();
+  mainWindow.removeMenu()
+
+  nativeTheme.on('updated', () => {
+    mainWindow.webContents.send('theme-changed');
+  });
+  
+  ipcMain.handle('dark-mode:toggle', () => {
+    if (nativeTheme.shouldUseDarkColors) {
+      nativeTheme.themeSource = 'light'
+    } else {
+      nativeTheme.themeSource = 'dark'
+    }
+    return nativeTheme.shouldUseDarkColors
+  })
+  
+  ipcMain.handle('dark-mode:system', () => {
+    nativeTheme.themeSource = 'system'
+  })
+  
+  ipcMain.handle('dark-mode:get-theme-source', () => {
+    return nativeTheme.themeSource;
+  });
+
+
 };
+
+
 
 app.on('ready', createWindow);
 
