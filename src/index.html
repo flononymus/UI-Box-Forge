@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- <meta http-equiv="Content-Security-Policy" content="
+    <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src  'self';
     style-src   'self' https://fonts.googleapis.com;
@@ -11,14 +11,22 @@
     img-src     'self' data: content:;
     media-src   'self';
     "
-    /> -->
+    />
 
-    <!-- default-src 'self' data: gap: https://ssl.gstatic.com ;  -->
-    <!-- style-src   'self' fonts.googleapis.com; -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src  'self';
+    style-src   'self' https://fonts.googleapis.com;
+    font-src    'self' data: https://fonts.gstatic.com;
+    img-src     'self' data: content:;
+    media-src   'self';
+    "> -->
 
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'"> -->
+
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
     <title>UI-Box-Forge</title>
 
@@ -28,20 +36,3 @@
     <div id="root"> </div>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-
-    <title>UI-Box</title>
-  </head>
-  <body>
- 
-    <div id="navbarRoot"> </div>
-      <div id="root"> </div>
-
-  </body>
-</html> -->
-
-
