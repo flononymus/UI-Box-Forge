@@ -1,4 +1,6 @@
 import './styles.css';
+import "@fontsource/material-icons";
+import "@fontsource/material-icons-outlined";
 
 import React, { useState, useEffect, FC } from 'react';
 import { createRoot } from 'react-dom/client';
