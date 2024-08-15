@@ -1,5 +1,6 @@
 import React from 'react'
 import {motion} from 'framer-motion'
+import { icons } from './Icons';
 
 export default function Home() {
 
@@ -24,7 +25,7 @@ export default function Home() {
                 </div>
 
                 <div className="logo">
-                    <img className="logoImg" src="./media/icon.png" />
+                    <img className="logoImg" src={icons.test} />
                 </div>
             </div>    
         </div>
