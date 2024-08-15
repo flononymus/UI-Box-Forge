@@ -1,6 +1,8 @@
 import './styles.css';
-import "@fontsource/material-icons";
-import "@fontsource/material-icons-outlined";
+import './material-icons.css'
+// import "@fontsource/material-icons";
+// import 'material-icons/iconfont/material-icons.css';
+// import "@fontsource/material-icons-outlined";
 
 import React, { useState, useEffect, FC } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -14,7 +16,6 @@ import Tether from './pages/Tether';
 import Switches from './pages/Switches'
 import Ball from './pages/Ball';
 import Joystick from './pages/Joystick'
-import Lock from './pages/Lock'
 import Cube from './pages/Cube'
 import Test from './pages/Test'
 
@@ -123,7 +124,6 @@ const attachEventListeners = () => {
         const button = document.getElementById(buttonId);
         if (button) {
             button.addEventListener(clickType, () => {
-                console.log('test')
                 window.loadPage(pageName as Page);
 
                 navbarRoot.render(<Navbar activePage={pageName} />);

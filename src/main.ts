@@ -1,5 +1,11 @@
 import { app, ipcMain, BrowserWindow, nativeTheme } from 'electron'
 import path from 'node:path'
+// import "@fontsource/material-icons";
+// import 'material-icons/iconfont/material-icons.css';
+// import "@fontsource/material-icons-outlined";
+
+import './material-icons.css';
+
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 

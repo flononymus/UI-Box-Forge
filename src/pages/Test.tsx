@@ -23,25 +23,6 @@ export default function Cube() {
         setIsSwitched(!isSwitched);
     }
 
-    // const handleMouse = (e: React.MouseEvent) => {
-    //     const rect = document.getElementById("cubeContainer")!.getBoundingClientRect();
-    //     const mouseX = e.clientX - rect.left;
-    //     const mouseY = e.clientY - rect.top;
-
-    //     if (mouseX >= 0 && mouseX <= rect.width && mouseY >= 0 && mouseY <= rect.height) {
-    //         setIsInside(true);
-    //         x.set(mouseX);
-    //         y.set(mouseY);
-    //     } else {
-    //         setIsInside(false);
-    //     }
-    // }
-
-    // function handleMouseLeave() {
-    //     setIsInside(false);
-    //     x.set(200);
-    //     y.set(200);
-    // }
 
 
     function animateRotation(newRotateX:number, newRotateY:number) {
@@ -134,7 +115,7 @@ export default function Cube() {
         <div className="bodyCenter">
             <div>
             <div style={{display:'flex',flexDirection:'row',justifyContent:'start', alignItems:'center'}}> 
-                <h1>Cube</h1>
+                <h1>Test</h1>
 
                 <motion.button className="navbarButton" style={{backgroundColor:'rgba(0,0,0,0)'}} onMouseDown={handleSwitchClick}>
                         <span className="material-symbols-outlined">
