@@ -123,6 +123,7 @@ const attachEventListeners = () => {
         const button = document.getElementById(buttonId);
         if (button) {
             button.addEventListener(clickType, () => {
+                console.log('test')
                 window.loadPage(pageName as Page);
 
                 navbarRoot.render(<Navbar activePage={pageName} />);
@@ -140,7 +141,6 @@ const attachEventListeners = () => {
  
 }
 document.addEventListener('DOMContentLoaded', attachEventListeners);
-
 
 const container = document.getElementById('root');
 const root = createRoot(container!);

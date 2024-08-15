@@ -2,6 +2,9 @@ import React, { useState, useEffect, FC } from 'react';
 import { Page } from '../renderer';
 import {motion} from 'framer-motion'
 
+import "@fontsource/material-icons";
+import "@fontsource/material-icons-outlined";
+
 
 interface NavbarProps {
   activePage: Page;
@@ -21,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
       <nav>
         <div className="navbarLeft">
 
-          <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton">
+          <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onClick={() => console.log('test')}>
             <span className="material-symbols-outlined">
               home
             </span>

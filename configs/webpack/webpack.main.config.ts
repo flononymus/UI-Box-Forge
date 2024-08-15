@@ -5,8 +5,6 @@ import { plugins } from './webpack.plugins';
 
 export const mainConfig: Configuration = {
   entry: './src/main.ts',
-
-
   module: {
     rules,
   },

@@ -13,7 +13,7 @@ export default function Home() {
             <div>
                 <div style={{display:'flex',flexDirection:'row',justifyContent:'start', alignItems:'center'}}> 
             
-                    <h1> UI-Box</h1>
+                    <h1> UI-Box Forge/Typescript</h1>
 
                     <motion.button className="navbarButton" style={{backgroundColor:'rgba(0,0,0,0)'}} id="settingsButton" onMouseDown={handleSettingsClick} whileHover={{rotate:180}}>
                         <span className="material-symbols-outlined">
