@@ -11,9 +11,12 @@ import { FuseV1Options, FuseVersion } from '@electron/fuses';
 import { mainConfig } from './configs/webpack/webpack.main.config';
 import { rendererConfig } from './configs/webpack/webpack.renderer.config';
 
+const path = require('path')
+
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    icon: path.resolve('src/media/icon.icns'),
   },
   rebuildConfig: {},
   makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
@@ -21,6 +24,8 @@ const config: ForgeConfig = {
     new AutoUnpackNativesPlugin({}),
     new WebpackPlugin({
       mainConfig,
+      // devContentSecurityPolicy: "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;",
+      // devContentSecurityPolicy: "connect-src 'self' * 'unsafe-eval'",
       renderer: {
         config: rendererConfig,
         entryPoints: [
