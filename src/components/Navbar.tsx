@@ -6,6 +6,12 @@ import {motion} from 'framer-motion'
 // import "material-symbols"
 // import "@fontsource/material-icons-outlined";
 
+declare global {
+  interface Window {
+      loadPage: (page: Page) => void;
+      setActivePage: (page: Page) => void;
+  }
+}
 
 
 interface NavbarProps {
@@ -26,13 +32,13 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
       <nav>
         <div className="navbarLeft">
 
-          <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => window.loadPage("Home")}>
+          <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => {window.loadPage("Home"), window.setActivePage('Home'), console.log(activePage)}}>
             <span className="material-symbols-outlined">
               home
             </span>
           </button>
 
-          <button className={activePage === 'Buttons' ? "navbarButton active" : "navbarButton"} id="buttonspageButton" onMouseDown={() => window.loadPage("Buttons")}>
+          <button className={activePage === 'Buttons' ? "navbarButton active" : "navbarButton"} id="buttonspageButton" onMouseDown={() => {window.loadPage("Buttons"), window.setActivePage('Buttons'),console.log(activePage)}}>
             <span className="material-symbols-outlined">
               apps
             </span>
