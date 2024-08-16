@@ -1,14 +1,9 @@
 import './styles.css';
 import './material-icons.css'
-// import "@fontsource/material-icons";
-// import 'material-icons/iconfont/material-icons.css';
-// import "@fontsource/material-icons-outlined";
-
 
 import React, { useState, useEffect, FC } from 'react';
 import { createRoot } from 'react-dom/client';
 import Home from './pages/Home';
-// import Navbar from './components/Navbar'
 import Settings from './pages/Settings';
 import Buttons from './pages/Buttons';
 import Spinner from './pages/Spinner';
@@ -19,7 +14,6 @@ import Ball from './pages/Ball';
 import Joystick from './pages/Joystick'
 import Cube from './pages/Cube'
 import Test from './pages/Test'
-// import Navbar from './components/Navbar';
 
 export type Page = 'Home' | 'Settings' | 'Buttons' | 'Spinner' | 'Particles' | 'Switches' | 'Tether' | 'Ball' | 'Joystick' | 'Test' | 'Cube';
 
@@ -119,14 +113,14 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
         <nav>
           <div className="navbarLeft">
   
-            <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => {window.loadPage("Home"), window.setActivePage('Home'), console.log(activePage)}}>
+            <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => window.loadPage("Home")}>
               <span className="material-symbols-outlined">
                 home
               </span>
             </button>
   
-            <button className={activePage === 'Buttons' ? "navbarButton active" : "navbarButton"} id="buttonspageButton" onMouseDown={() => {window.loadPage("Buttons"), window.setActivePage('Buttons'),console.log(activePage)}}>
-              <span className="material-symbols-outlined">
+            <button className={activePage === 'Buttons' ? "navbarButton active" : "navbarButton"} id="buttonspageButton" onMouseDown={() => window.loadPage("Buttons")}>
+             <span className="material-symbols-outlined">
                 apps
               </span>
             </button>
@@ -189,72 +183,58 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
         </div>
       )
 
-    //   return {
-    //     <Navbar activePage={active} /> 
-    //   }
-    }
-    export default Navbar
-
-
-const attachEventListeners = () => {
-
-    const clickType = "mousedown";
-
-    const homeButton = document.getElementById('homeButton');
-    const settingsButton = document.getElementById('settingsButton');
-    const darkmodeToggleButton= document.getElementById('darkmodeToggleButton');
-    const buttonsPageButton = document.getElementById('buttonspageButton');
-    const spinnerPageButton = document.getElementById('spinnerpageButton');
-    const particlesPageButton = document.getElementById('particlespageButton');
-    const tetherPageButton = document.getElementById('tetherpageButton');
-    const switchesPageButton = document.getElementById('switchespageButton');
-    const ballPageButton = document.getElementById('ballpageButton');
-    const joystickPageButton= document.getElementById('joystickpageButton');
-
-    if (homeButton) {
-        homeButton.addEventListener(clickType, () => window.loadPage('Home'));
-    }
-    if (!homeButton) {
-        console.log('homebutton not found')
+      // return {
+      //   <Navbar activePage={active} /> 
+      // }
     }
 
-    if (settingsButton) {
-        settingsButton.addEventListener(clickType, () => window.loadPage('Settings'));
-    }
 
-    if (buttonsPageButton) {
-        buttonsPageButton.addEventListener(clickType, () => window.loadPage('Buttons'));
-    
-    }
-    if (spinnerPageButton) {
-        spinnerPageButton.addEventListener(clickType, () => window.loadPage('Spinner'));
-    }
-    if (particlesPageButton) {
-        particlesPageButton.addEventListener(clickType, () => window.loadPage('Particles'));
-    }
-    if (tetherPageButton) {
-        tetherPageButton.addEventListener(clickType, () => window.loadPage('Tether'));
-    }
-    if (switchesPageButton) {
-        switchesPageButton.addEventListener(clickType, () => window.loadPage('Switches'));
-    }
-    if (ballPageButton) {
-        ballPageButton.addEventListener(clickType, () => window.loadPage('Ball'));
-    }
-    if (joystickPageButton) {
-        joystickPageButton.addEventListener(clickType, () => window.loadPage('Joystick'));
-    }
+// const attachEventListeners = () => {
+
+//     const clickType = "mousedown";
+
+//     const buttons: {[key: string] : Page} = {
+//         'homeButton': 'Home',
+//         'settingsButton': 'Settings',
+//         'buttonspageButton': 'Buttons',
+//         'spinnerpageButton': 'Spinner',
+//         'particlespageButton': 'Particles',
+//         'tetherpageButton': 'Tether',
+//         'switchespageButton': 'Switches',
+//         'ballpageButton': 'Ball',
+//         'joystickpageButton': 'Joystick',
+//         'testpageButton': 'Test',
+//         'cubepageButton': 'Cube',
+//     };
+
+
+//     Object.entries(buttons).forEach(([buttonId, pageName]) => {
+//         const button = document.getElementById(buttonId);
+//         if (button) {
+//             button.addEventListener(clickType, () => {
+//                 window.loadPage(pageName as Page);
+
+//                 navbarRoot.render(<Navbar activePage={pageName} />);
+//                 console.log(pageName)
+//             })
+//         }
+//     });
         
+//     const darkmodeToggleButton= document.getElementById('darkmodeToggleButton');
 
-    if (darkmodeToggleButton) {
-        darkmodeToggleButton!.addEventListener(clickType, () => {
-            window.darkMode.toggle()
-        });
-    }
+//     if (darkmodeToggleButton) {
+//         darkmodeToggleButton!.addEventListener(clickType, () => {
+//             window.darkMode.toggle()
+//         });
+//     }
+
+//     if (!darkmodeToggleButton) {
+//       console.log('darkbutton not found')
+//     }
  
-}
+// }
 
-document.addEventListener('DOMContentLoaded', attachEventListeners);
+// document.addEventListener('DOMContentLoaded', attachEventListeners);
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
@@ -272,30 +252,3 @@ navbarRoot.render(<Navbar activePage={startPage}/>)
 
 
 
-
-    // const buttons: {[key: string] : Page} = {
-    //     'homeButton': 'Home',
-    //     'settingsButton': 'Settings',
-    //     'buttonspageButton': 'Buttons',
-    //     'spinnerpageButton': 'Spinner',
-    //     'particlespageButton': 'Particles',
-    //     'tetherpageButton': 'Tether',
-    //     'switchespageButton': 'Switches',
-    //     'ballpageButton': 'Ball',
-    //     'joystickpageButton': 'Joystick',
-    //     'testpageButton': 'Test',
-    //     'cubepageButton': 'Cube',
-    // };
-
-
-    // Object.entries(buttons).forEach(([buttonId, pageName]) => {
-    //     const button = document.getElementById(buttonId);
-    //     if (button) {
-    //         button.addEventListener(clickType, () => {
-    //             window.loadPage(pageName as Page);
-
-    //             navbarRoot.render(<Navbar activePage={pageName} />);
-    //             console.log(pageName)
-    //         })
-    //     }
-    // });
