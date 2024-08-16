@@ -17,7 +17,7 @@ import Test from './pages/Test'
 
 export type Page = 'Home' | 'Settings' | 'Buttons' | 'Spinner' | 'Particles' | 'Switches' | 'Tether' | 'Ball' | 'Joystick' | 'Test' | 'Cube';
 
-const startPage = "Cube"
+const startPage : Page = "Cube"
 
 declare global {
   interface Window {
@@ -31,6 +31,7 @@ declare global {
   }
   interface NavbarProps {
     activePage: Page;
+    setActive: (page: Page) => void;
   }
 }
 
@@ -68,9 +69,6 @@ const App: FC = () => {
         case 'Joystick':
             CurrentPage = Joystick;
             break;
-        // case 'Lock':
-        //     CurrentPage = Lock;
-        //     break;
         case 'Test':
             CurrentPage = Test
             break;
@@ -94,12 +92,13 @@ const App: FC = () => {
     return (
         <>
             {/* <Navbar activePage={active} /> */}
+            {/* <Navbar activePage={active} setActive={setActive}/> */}
             <CurrentPage loadPage={loadPage} />
         </>
     )
 };
 
-const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
+const Navbar: React.FC<NavbarProps> = ({ activePage, setActive }) => {
 
     const [isDark, setIsDark] = useState(false)
   
@@ -113,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
         <nav>
           <div className="navbarLeft">
   
-            <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => window.loadPage("Home")}>
+            <button className={activePage === 'Home' ? "navbarButton active" : "navbarButton"} id="homeButton" onMouseDown={() => {window.loadPage("Home"), console.log(activePage), setActive("Home")} }>
               <span className="material-symbols-outlined">
                 home
               </span>
@@ -182,59 +181,9 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
           </nav>
         </div>
       )
-
-      // return {
-      //   <Navbar activePage={active} /> 
-      // }
     }
 
 
-// const attachEventListeners = () => {
-
-//     const clickType = "mousedown";
-
-//     const buttons: {[key: string] : Page} = {
-//         'homeButton': 'Home',
-//         'settingsButton': 'Settings',
-//         'buttonspageButton': 'Buttons',
-//         'spinnerpageButton': 'Spinner',
-//         'particlespageButton': 'Particles',
-//         'tetherpageButton': 'Tether',
-//         'switchespageButton': 'Switches',
-//         'ballpageButton': 'Ball',
-//         'joystickpageButton': 'Joystick',
-//         'testpageButton': 'Test',
-//         'cubepageButton': 'Cube',
-//     };
-
-
-//     Object.entries(buttons).forEach(([buttonId, pageName]) => {
-//         const button = document.getElementById(buttonId);
-//         if (button) {
-//             button.addEventListener(clickType, () => {
-//                 window.loadPage(pageName as Page);
-
-//                 navbarRoot.render(<Navbar activePage={pageName} />);
-//                 console.log(pageName)
-//             })
-//         }
-//     });
-        
-//     const darkmodeToggleButton= document.getElementById('darkmodeToggleButton');
-
-//     if (darkmodeToggleButton) {
-//         darkmodeToggleButton!.addEventListener(clickType, () => {
-//             window.darkMode.toggle()
-//         });
-//     }
-
-//     if (!darkmodeToggleButton) {
-//       console.log('darkbutton not found')
-//     }
- 
-// }
-
-// document.addEventListener('DOMContentLoaded', attachEventListeners);
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
@@ -243,12 +192,6 @@ root.render(<App />);
 
 const navbarContainer = document.getElementById('navbarRoot');
 const navbarRoot = createRoot(navbarContainer!)
-navbarRoot.render(<Navbar activePage={startPage}/>)
-
-
-
-
-
-
-
+// navbarRoot.render(<Navbar activePage={startPage} setActive={setActive} />)
+navbarRoot.render(<Navbar activePage={activePage} setActive={setActive} />)
 
