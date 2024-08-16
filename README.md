@@ -10,3 +10,10 @@ ___
 
 ![preview](/src/media/uibox-dark.png)
 
+
+
+
+# BUG FIXES:
+
+- renderer.tsx cant find navbar buttons by id
+- Material icons not working
